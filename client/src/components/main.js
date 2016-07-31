@@ -1,9 +1,8 @@
 import React from 'react';
-import {Grid} from 'react-bootstrap';
 
 class Main extends React.Component {
   render() {
-    return <Grid>{this.props.children}</Grid>;
+    return this.props.children;
   }
 }
 

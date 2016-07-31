@@ -5,5 +5,6 @@ jQuery = $;
 
 require('bootstrap-webpack');
 require('bootstrap-webpack!./bootstrap.config.js');
+require('./assets/css/react-bootstrap-table.min.css');
 
 require('./src/index.js');
