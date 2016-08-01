@@ -2,30 +2,37 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import * as actions from '../../actions/swapiActionCreator';
-import {getPeople} from '../../reducers/rootReducer';
+import {getPeople, getPerson} from '../../reducers/rootReducer';
 
-import PeopleTable from './peopleTable';
+import PeopleView from './peopleView';
 
 class PeopleContainer extends React.Component {
   componentDidMount() {
-    this.props.fetchPeople();
+    this.props.fetchAllPeople();
   }
 
   render() {
     return (
-      <PeopleTable people={this.props.people}/>
+      <PeopleView people={this.props.people} person={this.props.person} children={this.props.children}/>
     );
   }
 }
 
 PeopleContainer.propTypes = {
+  children: React.PropTypes.node,
   people: React.PropTypes.array,
-  fetchPeople: React.PropTypes.func
+  person: React.PropTypes.object,
+  fetchAllPeople: React.PropTypes.func
 };
 
 const mapStateToProps = (state, {params}) => {
+  let person;
+  if (params.personName) {
+    person = getPerson(state, params.personName);
+  }
   return {
-    people: getPeople(state)
+    people: getPeople(state),
+    person
   };
 };
 
