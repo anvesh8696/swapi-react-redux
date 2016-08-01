@@ -1,9 +1,11 @@
 import ActionTypes from '../../actions/actionTypes';
+import _ from 'lodash';
 
 const peopleReducer = (state = [], action) => {
   switch (action.type) {
     case ActionTypes.RECEIVE_PEOPLE:
-      return [...action.response.results];
+      return [...state,
+              ...action.payload];
     default:
       return state;
   }
@@ -12,3 +14,7 @@ const peopleReducer = (state = [], action) => {
 export {peopleReducer as default};
 
 export const getPeople = (state) => state;
+
+export const getPerson = (state, personName) => {
+  return _.find(state, {name: personName});
+};

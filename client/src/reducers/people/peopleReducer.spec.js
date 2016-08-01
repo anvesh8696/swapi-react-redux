@@ -7,7 +7,7 @@ describe('PeopleReducer', function() {
   it('should have an array of people on RECEIVE_PEOPLE', function () {
     let beforeState = [];
     deepFreeze(beforeState);
-    let afterState = peopleReducer(beforeState, {type: ActionTypes.RECEIVE_PEOPLE, response: peopleData});
+    let afterState = peopleReducer(beforeState, {type: ActionTypes.RECEIVE_PEOPLE, payload: peopleData.results});
     expect(getPeople(afterState).length).toEqual(peopleData.results.length);
   });
 });
