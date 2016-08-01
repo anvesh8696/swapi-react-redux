@@ -6,7 +6,7 @@ import Landing from './components/landing/landing';
 import People from './components/people/peopleContainer';
 import Person from './components/people/personContainer';
 
-import NotFound from './components/notFoundPage';// TODO: Not working
+import NotFound from './components/notFoundPage';
 
 export default (
   <Route path="/" component={Main}>
