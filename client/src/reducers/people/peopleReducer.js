@@ -22,7 +22,7 @@ const allPeopleNamesReducer = (state = [], action) => {
     case ActionTypes.RECEIVE_PEOPLE:
       let newState = [...state];
       _.each(action.payload, function(person) {
-        if (!state.includes( person.name)) {
+        if (state.indexOf(person.name) === -1) {
           newState = [...newState,
                       person.name];
         }
